@@ -300,15 +300,16 @@ class BmBluetoothCharacteristic {
   final DeviceIdentifier remoteId;
   final Guid serviceUuid;
   final Guid characteristicUuid;
+  final int characteristicId;
   final Guid? primaryServiceUuid;
   List<BmBluetoothDescriptor> descriptors;
   BmCharacteristicProperties properties;
-
 
   BmBluetoothCharacteristic({
     required this.remoteId,
     required this.serviceUuid,
     required this.characteristicUuid,
+    this.characteristicId = 0,
     required this.primaryServiceUuid,
     required this.descriptors,
     required this.properties,
@@ -439,12 +440,14 @@ class BmReadCharacteristicRequest {
   final DeviceIdentifier remoteId;
   final Guid serviceUuid;
   final Guid characteristicUuid;
+  final int characteristicId;
   final Guid? primaryServiceUuid;
 
   BmReadCharacteristicRequest({
     required this.remoteId,
     required this.serviceUuid,
     required this.characteristicUuid,
+    this.characteristicId = 0,
     this.primaryServiceUuid,
   });
 
@@ -463,17 +466,18 @@ class BmCharacteristicData {
   final DeviceIdentifier remoteId;
   final Guid serviceUuid;
   final Guid characteristicUuid;
+  final int characteristicId;
   final Guid? primaryServiceUuid;
   final List<int> value;
   final bool success;
   final int errorCode;
   final String errorString;
 
-
   BmCharacteristicData({
     required this.remoteId,
     required this.serviceUuid,
     required this.characteristicUuid,
+    this.characteristicId = 0,
     required this.primaryServiceUuid,
     required this.value,
     required this.success,
@@ -531,16 +535,17 @@ class BmWriteCharacteristicRequest {
   final DeviceIdentifier remoteId;
   final Guid serviceUuid;
   final Guid characteristicUuid;
+  final int characteristicId;
   final Guid? primaryServiceUuid;
   final BmWriteType writeType;
   final bool allowLongWrite;
   final List<int> value;
 
-
   BmWriteCharacteristicRequest({
     required this.remoteId,
     required this.serviceUuid,
     required this.characteristicUuid,
+    this.characteristicId = 0,
     required this.primaryServiceUuid,
     required this.writeType,
     required this.allowLongWrite,
@@ -633,15 +638,16 @@ class BmSetNotifyValueRequest {
   final DeviceIdentifier remoteId;
   final Guid serviceUuid;
   final Guid characteristicUuid;
+  final int characteristicId;
   final Guid? primaryServiceUuid;
   final bool forceIndications;
   final bool enable;
-
 
   BmSetNotifyValueRequest({
     required this.remoteId,
     required this.serviceUuid,
     required this.characteristicUuid,
+    this.characteristicId = 0,
     required this.primaryServiceUuid,
     required this.forceIndications,
     required this.enable,
